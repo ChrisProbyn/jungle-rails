@@ -1,0 +1,15 @@
+Thank you for your order <%= @order.email %>
+===============================================
+ 
+Your order contains:
+ 
+<%@order.line_items.each do |item| %>
+    <%= item.product.name %>
+    <%= item.product.description %>
+    <%= item.quantity %>
+    <%= humanized_money_with_symbol item.total_price_cents/100 %>
+<% end %>
+ 
+Your total is: <%= humanized_money_with_symbol @order.total_cents/100 %>
+
+Thanks for your order and have a great day!
