@@ -27,6 +27,7 @@
       
     </div>
   </article>
+  <% if @user %> 
   <div>
     <%= form_for [@product, @review] do |f|%>
         <%= f.label :rating %>
@@ -36,6 +37,7 @@
       <%= f.submit "Review this product" %>
 <% end %>
   </div>
+  <% end %>
 <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -46,7 +48,7 @@
         </tr>
       </thead>
       <tbody>
-        <%@product.reviews.each do |review| %>
+        <%@product.reviews.reverse_each do |review| %>
        <tr>
         <td>
           <%= review.rating %>
@@ -56,6 +58,9 @@
         </td>  
         <td>
           <%= review.user_id %>
+          <% if @user == review.user_id %>
+           <%= button_to "delete", "/products/#{@product.id}/reviews/#{review.id}", :method => :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
         </td>
         </tr>
         <% end %>
