@@ -5,7 +5,7 @@
   </header>
   <% if cart.size == 0 %>
   <h1>your cart is empty </h1>
-  <%= link_to "Home", root_path%>
+  <%= link_to "Home", root_path, class: "btn btn-lg btn-primary"%>
   <% else  %>
   
   <div class="panel panel-default items">
