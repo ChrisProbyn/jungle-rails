@@ -132,5 +132,20 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+prod1 = Product.find_or_create_by! name: 'Electric Chair'
+prod2 = Product.find_or_create_by! name: 'Red Bookshelf'
+prod3 = Product.find_or_create_by! name: 'Russian Spy Shoes'
+
+prod1.reviews.create!({
+  user_id:1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 5,
+})
+prod1.reviews.create!({
+  user_id:2,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4,
+})
 
 puts "DONE!"

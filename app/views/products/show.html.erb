@@ -24,8 +24,43 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      
     </div>
-
   </article>
-
+  <div>
+    <%= form_for [@product, @review] do |f|%>
+        <%= f.label :rating %>
+        <%= f.select :rating, options_for_select([["Select One", ""], 1, 2, 3, 4, 5]), :class => 'genForm_dropBox' %>
+        <%= f.label :review %>
+        <%= f.text_field :description %>
+      <%= f.submit "Review this product" %>
+<% end %>
+  </div>
+<div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Review</th>
+          <th>User ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@product.reviews.each do |review| %>
+       <tr>
+        <td>
+          <%= review.rating %>
+        </td>
+         <td> 
+          <%= review.description %>
+        </td>  
+        <td>
+          <%= review.user_id %>
+        </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </section>
+
