@@ -1,6 +1,8 @@
 main section.products-index,
 main section.categories-show {
-
+  .fa-star {
+    color: gold
+  }
   .products {
     display:         flex;
     flex-direction:  row;
@@ -77,11 +79,16 @@ main section.categories-show {
 }
 
 main section.products-show {
-
+  tr:nth-child(even) {
+    background-color: #f2f2f2
+  }
   .product-detail {
     img.main-img {
       max-width: 100%;
     }
+  }
+  .fa {
+    color: gold
   }
 }
 

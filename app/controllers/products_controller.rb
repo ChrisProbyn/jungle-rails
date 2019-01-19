@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @review = Review.new()
     @user = session[:user_id]
-    @user_name = User.find(@user)
   end
 
 end

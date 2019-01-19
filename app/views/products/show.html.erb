@@ -38,6 +38,7 @@
 <% end %>
   </div>
   <% end %>
+  <%if @product.reviews.size >0 %>
 <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -51,7 +52,7 @@
         <%@product.reviews.reverse_each do |review| %>
        <tr>
         <td>
-          <%= review.rating %>
+          <%= fa_icon "star"%> <%= review.rating %><%= "/5" %>
         </td>
          <td> 
           <%= review.description %>
@@ -67,5 +68,6 @@
       </tbody>
     </table>
   </div>
+  <% end %>
 </section>
 
